@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import RulesModal from "./components/RulesModal/RulesModal";
 
 function App() {
   return (
     <div className="App">
-    Hello World
+      <RulesModal />
     </div>
   );
 }
