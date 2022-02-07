@@ -1,0 +1,1 @@
+export const STORAGE = 'rps-game-score'
