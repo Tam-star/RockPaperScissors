@@ -1,0 +1,25 @@
+.choice-container {
+    position: relative;
+    width: 500px;
+    height : 500px;
+    display : flex;
+    &__image {
+        margin : auto;
+    }
+    &__top-left{
+        position : absolute;
+        top : 5%;
+        left : 5%;
+    }
+    &__top-right{
+        position : absolute;
+        top : 5%;
+        right : 5%;
+    }
+    &__bottom{
+        position : absolute;
+        bottom : 0;
+        left : 50%;
+        transform: translate(-50%, -30%);
+    }
+}

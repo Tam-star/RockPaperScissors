@@ -4,7 +4,7 @@
     margin: auto;
 }
 
-.symbol-container {
+@mixin symbol{
     background-color: white;
     width: 200px;
     height: 200px;
@@ -13,12 +13,31 @@
     border-radius: 100%;
     background-origin: border-box;
     background-clip: content-box, border-box;
+    cursor: pointer;
 }
 
-.symbol-container img {
-    margin: auto;
-    height: 100px;
+.symbol-container {
+    @include symbol();
+    &--small {
+        @include symbol();
+        width: 150px;
+        height: 150px;
+        border: inset 20px transparent;
+        &__image {
+            margin: auto;
+            height: 80px;
+        }
+    }
+    &__image {
+        margin: auto;
+        height: 100px;
+    }
 }
+
+// .symbol-container img {
+//     margin: auto;
+//     height: 100px;
+// }
 
 .scissors {
     background-image: linear-gradient(white, white), radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));

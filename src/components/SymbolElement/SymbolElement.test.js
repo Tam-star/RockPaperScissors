@@ -7,7 +7,7 @@ beforeEach(() => {
 
 describe("test style for game elements", () => {
   test("test style for scissors ", () => {
-    render(<SymbolElement type="scissors" />);
+    render(<SymbolElement type="scissors"/>);
     const mySymbolContainer = screen.queryByTestId("symbol-container");
     expect(mySymbolContainer).toHaveClass('scissors')
   });

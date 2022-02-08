@@ -1,12 +1,11 @@
 import "./App.css";
-import RulesModal from "./components/RulesModal/RulesModal";
-import SymbolElement from "./components/SymbolElement/SymbolElement";
+import ChoiceContainer from "./components/ChoiceContainer/ChoiceContainer";
 
 function App() {
   return (
     <div className="App">
-      <RulesModal />
-      <SymbolElement type='paper'/>
+      {/* <RulesModal /> */}
+      <ChoiceContainer/>
     </div>
   );
 }
