@@ -21,4 +21,19 @@ describe("test style for game elements", () => {
     const mySymbolContainer = screen.queryByTestId("symbol-container");
     expect(mySymbolContainer).toHaveClass('paper')
   });
+  test("test style for scissors when winning", () => {
+    render(<SymbolElement type="scissors" win={true}/>);
+    const mySymbolContainer = screen.queryByTestId("symbol-container");
+    expect(mySymbolContainer).toHaveClass('scissors--winner')
+  });
+  test("test style for rock when winning ", () => {
+    render(<SymbolElement type="rock" win={true}/>);
+    const mySymbolContainer = screen.queryByTestId("symbol-container");
+    expect(mySymbolContainer).toHaveClass('rock--winner')
+  });
+  test("test style for paper when winning ", () => {
+    render(<SymbolElement type="paper" win={true}/>);
+    const mySymbolContainer = screen.queryByTestId("symbol-container");
+    expect(mySymbolContainer).toHaveClass('paper--winner')
+  });
 });
