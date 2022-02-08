@@ -1,0 +1,15 @@
+$header-outline : hsl(217, 16%, 45%);
+
+.rules-button{
+    align-self: flex-end;
+    margin-right : 20px;
+    background-color: transparent;
+    padding : 10px 40px;
+    border-radius : 10px;
+    border : 2px solid $header-outline;
+    color : white;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    letter-spacing: 2px;
+    font-size : 16px;
+    cursor : help;
+}

@@ -1,0 +1,17 @@
+$header-outline : hsl(217, 16%, 45%);
+
+.app-header{
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+    padding : 20px 40px;
+    border-radius: 20px;
+    border : 3px solid $header-outline;
+    width :55%;
+    margin : auto;
+    & img{
+        height : 110px;
+        width : auto;
+        padding: 10px 0;
+    }
+}
