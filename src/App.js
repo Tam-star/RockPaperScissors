@@ -4,15 +4,17 @@ import ChoiceContainer from "./components/ChoiceContainer/ChoiceContainer";
 import RulesButton from "./components/RulesButton/RulesButton";
 import React from "react";
 import GameContainer from "./components/GameContainer/GameContainer";
+import { getHouseSymbol } from "./utils/helper";
 
 function App() {
   const [userChose, setUserChose] = React.useState(false);
   const [userPick, setUserPick] = React.useState("");
+  const [housePick, setHousePick] = React.useState("");
 
   const handleChangeContainer = (e) => {
     e.preventDefault();
-    console.log(e.currentTarget.dataset.symbol);
     setUserPick(e.currentTarget.dataset.symbol);
+    setHousePick(getHouseSymbol());
     setUserChose(!userChose);
   };
 
@@ -22,6 +24,7 @@ function App() {
       {userChose ? (
         <GameContainer
           userPick={userPick}
+          housePick={housePick}
           changeContainer={handleChangeContainer}
         />
       ) : (

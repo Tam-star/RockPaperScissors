@@ -68,3 +68,15 @@ export function setNewScore(gameResult) {
     sessionStorage.setItem(STORAGE, newScore);
   }
 }
+
+export function declareWinner(housePick, userPick){
+  const result = play(housePick, userPick)
+  switch(result){
+    case 1 : return "YOU WIN"
+    case 0 : return "IT'S A TIE"
+    case -1 : return "YOU LOSE"
+    default:
+          throw Error("something is wrong");
+  }
+
+}

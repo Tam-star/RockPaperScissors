@@ -6,6 +6,7 @@ import {
   configure,
 } from "@testing-library/react";
 import App from "./App";
+import { TIME_BEFORE_SHOWING_RESULT } from "./config";
 
 const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t));
 
@@ -25,17 +26,16 @@ describe("test change between GameContainer and ChoiceContainer components", () 
     expect(screen.getByTestId("game-container")).toBeInTheDocument();
   });
   test("test change for choice container after user clicked on Play Again", async () => {
-   
     //Modified the default timeout which was 1000
-    configure({ asyncUtilTimeout: 5000 });
+    configure({ asyncUtilTimeout: TIME_BEFORE_SHOWING_RESULT + 1000 });
     render(<App />);
     fireEvent.click(screen.getByTitle("paper"));
-    await waitFor(() => sleep(3000));
+    await waitFor(() => sleep(TIME_BEFORE_SHOWING_RESULT));
     fireEvent.click(screen.getByRole("button", { name: "PLAY AGAIN" }));
 
     expect(screen.queryByTestId("game-container")).not.toBeInTheDocument();
     expect(screen.getByTestId("choice-container")).toBeInTheDocument();
-    
+
     //Set back the default timeout
     configure({ asyncUtilTimeout: 1000 });
   });

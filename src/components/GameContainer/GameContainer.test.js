@@ -1,8 +1,9 @@
 import { render, screen, waitFor, configure } from "@testing-library/react";
 import GameContainer from "./GameContainer";
+import { TIME_BEFORE_SHOWING_RESULT } from "../../config";
 
 //Modified the default timeout which was 1000
-configure({ asyncUtilTimeout: 5000 });
+configure({ asyncUtilTimeout: TIME_BEFORE_SHOWING_RESULT + 1000 });
 
 beforeEach(() => {
   document.body.innerHTML = null;
@@ -10,33 +11,28 @@ beforeEach(() => {
 
 const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t));
 
-test("test appearance of PlayAgainComponent after 3 seconds wait", async () => {
-  render(<GameContainer />);
-  await waitFor(() => sleep(3000));
+test("appearance of PlayAgainComponent after 2 seconds wait", async () => {
+  render(<GameContainer userPick="paper" housePick="scissors" />);
+  await waitFor(() => sleep(TIME_BEFORE_SHOWING_RESULT));
   expect(screen.getByTestId("play-again-container")).toBeInTheDocument();
 });
 
-test("test appearance of the two symbols", async () => {
-  render(<GameContainer userPick="paper" housePick="scissors" />);
-  expect(screen.getByTestId("user-pick")).toHaveClass("paper");
-  expect(screen.getByTestId("house-pick")).toHaveClass("scissors");
-});
-
 describe("test final sentence", () => {
-  test("test final sentence when house wins", async () => {
+  test("final sentence when house wins", async () => {
     render(<GameContainer userPick="paper" housePick="scissors" />);
+    await waitFor(() => sleep(TIME_BEFORE_SHOWING_RESULT));
     expect(screen.getByTestId("final-sentence")).toHaveTextContent("YOU LOSE");
   });
-  test("test final sentence when user wins", async () => {
+  test("final sentence when user wins", async () => {
     render(<GameContainer userPick="rock" housePick="scissors" />);
+    await waitFor(() => sleep(TIME_BEFORE_SHOWING_RESULT));
     expect(screen.getByTestId("final-sentence")).toHaveTextContent("YOU WIN");
   });
-  test("test final sentence when it is a tie", async () => {
+  test("final sentence when it is a tie", async () => {
     render(<GameContainer userPick="paper" housePick="paper" />);
+    await waitFor(() => sleep(TIME_BEFORE_SHOWING_RESULT));
     expect(screen.getByTestId("final-sentence")).toHaveTextContent(
       "IT'S A TIE"
     );
   });
 });
-
-
