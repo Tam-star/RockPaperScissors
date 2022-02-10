@@ -1,5 +1,13 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  configure,
+} from "@testing-library/react";
 import App from "./App";
+
+const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t));
 
 beforeEach(() => {
   document.body.innerHTML = null;
@@ -16,15 +24,19 @@ describe("test change between GameContainer and ChoiceContainer components", () 
     expect(screen.queryByTestId("choice-container")).not.toBeInTheDocument();
     expect(screen.getByTestId("game-container")).toBeInTheDocument();
   });
-  test('test change for choice container after user clicked on Play Again', () =>{
+  test("test change for choice container after user clicked on Play Again", async () => {
+   
+    //Modified the default timeout which was 1000
+    configure({ asyncUtilTimeout: 5000 });
     render(<App />);
     fireEvent.click(screen.getByTitle("paper"));
-
-    //wait 3 seconds, then click on play again, then assertions
-
+    await waitFor(() => sleep(3000));
+    fireEvent.click(screen.getByRole("button", { name: "PLAY AGAIN" }));
 
     expect(screen.queryByTestId("game-container")).not.toBeInTheDocument();
     expect(screen.getByTestId("choice-container")).toBeInTheDocument();
-  })
+    
+    //Set back the default timeout
+    configure({ asyncUtilTimeout: 1000 });
+  });
 });
-

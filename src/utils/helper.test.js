@@ -2,7 +2,9 @@ import { getHouseSymbol, play, getScore, setNewScore } from "./helper";
 import { STORAGE } from "../config";
 
 test("test getHouseSymbol to return either rock, paper or scissors", () => {
-  expect(getHouseSymbol()).toBe(/'rock|paper|scissors/i);
+  expect(getHouseSymbol()).toMatch(/(rock|paper|scissors)/);
+  expect(getHouseSymbol()).toMatch(/(rock|paper|scissors)/);
+  expect(getHouseSymbol()).toMatch(/(rock|paper|scissors)/);
 });
 
 //play function will return  :
@@ -43,22 +45,22 @@ describe("test play function", () => {
   });
 });
 
-describe("test getScore", () => {
+describe("tests getScore", () => {
   afterEach(() => {
     sessionStorage.clear();
   });
-  test("test getting score from session storage", () => {
+  test("getting score from session storage", () => {
     sessionStorage.setItem(STORAGE, 3);
     const score = getScore();
     expect(score).toBe(3);
   });
-  test("test getting score when there is no score stored", () => {
+  test("score should be 0 when there is no score stored", () => {
     const score = getScore();
-    expect(score).toBe(3);
+    expect(score).toBe(0);
   });
 });
 
-//setNewScore(playOutPut)
+//setNewScore(gameResult)
 describe("test setNewScore", () => {
   afterEach(() => {
     sessionStorage.clear();
@@ -66,28 +68,28 @@ describe("test setNewScore", () => {
   test("test setNewScore in case it is a tie", () => {
     sessionStorage.setItem(STORAGE, 12);
     setNewScore(0);
-    expect(sessionStorage.getItem(STORAGE)).toBe(12);
+    expect(sessionStorage.getItem(STORAGE)).toBe('12');
   });
   test("test setNewScore in case it house win", () => {
     sessionStorage.setItem(STORAGE, 12);
     setNewScore(-1);
-    expect(sessionStorage.getItem(STORAGE)).toBe(11);
+    expect(sessionStorage.getItem(STORAGE)).toBe('11');
   });
-  test("test setNewScore in case it user win", () => {
+  test("setNewScore in case user win", () => {
     sessionStorage.setItem(STORAGE, 12);
-    setNewScore(-1);
-    expect(sessionStorage.getItem(STORAGE)).toBe(13);
+    setNewScore(1);
+    expect(sessionStorage.getItem(STORAGE)).toBe('13');
   });
   //Score cannot be below 0
-  test("test setNewScore in case house wins and user score was 0", () => {
+  test("setNewScore in case house wins and user score was 0", () => {
     sessionStorage.setItem(STORAGE, 0);
     setNewScore(-1);
-    expect(sessionStorage.getItem(STORAGE)).toBe(0);
+    expect(sessionStorage.getItem(STORAGE)).toBe('0');
   });
   //Maximum score : 999
-  test("test setNewScore in case user wins and user score was 999", () => {
+  test("setNewScore in case user wins and user score was 999", () => {
     sessionStorage.setItem(STORAGE, 999);
-    setNewScore(-1);
-    expect(sessionStorage.getItem(STORAGE)).toBe(999);
+    setNewScore(1);
+    expect(sessionStorage.getItem(STORAGE)).toBe('999');
   });
 });
