@@ -30,6 +30,7 @@ function GameContainer({ userPick, housePick, changeContainer, updateScore }) {
       clearTimeout(timer1);
       clearTimeout(timer2);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameResult]);
 
   //UseEffect to wait 3 seconds before rendering 'You win' or 'You lose' div
