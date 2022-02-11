@@ -4,7 +4,7 @@
     margin: auto;
 }
 
-@mixin symbol{
+@mixin symbol {
     background-color: white;
     width: 200px;
     height: 200px;
@@ -17,22 +17,26 @@
 
 .symbol-container {
     @include symbol();
-    &--small {
+    &--choice {
         @include symbol();
         width: 150px;
         height: 150px;
         border: inset 20px transparent;
+        cursor: pointer;
         &__image {
             margin: auto;
             height: 80px;
         }
+    }
+    &--hidden {
+        @include symbol();
+        background-color: #1c2138;
     }
     &__image {
         margin: auto;
         height: 100px;
     }
 }
-
 
 .scissors {
     background-image: linear-gradient(white, white), radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));

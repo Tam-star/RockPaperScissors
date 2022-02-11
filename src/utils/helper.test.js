@@ -97,15 +97,15 @@ describe("test setNewScore", () => {
 //declareWinner(housePick, userPick)
 describe("tests declareWinner function", () => {
   test("in case house wins", () => {
-    const finalSentence = declareWinner("scissors", "paper")
+    const finalSentence = declareWinner(-1)
     expect(finalSentence).toBe("YOU LOSE")
   });
   test("in case user wins", () => {
-    const finalSentence = declareWinner("rock", "paper")
+    const finalSentence = declareWinner(1)
     expect(finalSentence).toBe("YOU WIN")
   });
   test("in case it's a tie", () => {
-    const finalSentence = declareWinner("paper", "paper")
+    const finalSentence = declareWinner(0)
     expect(finalSentence).toBe("IT'S A TIE")
   });
 });

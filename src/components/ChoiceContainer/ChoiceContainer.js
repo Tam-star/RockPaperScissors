@@ -13,21 +13,21 @@ function ChoiceContainer({ changeContainer }) {
       <div className="choice-container__top-left">
         <SymbolElement
           type="paper"
-          small={true}
+          status="choice"
           changeContainer={changeContainer}
         />
       </div>
       <div className="choice-container__top-right">
         <SymbolElement
           type="scissors"
-          small={true}
+          status="choice"
           changeContainer={changeContainer}
         />
       </div>
       <div className="choice-container__bottom">
         <SymbolElement
           type="rock"
-          small={true}
+          status="choice"
           changeContainer={changeContainer}
         />
       </div>

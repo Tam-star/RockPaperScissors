@@ -69,9 +69,9 @@ export function setNewScore(gameResult) {
   }
 }
 
-export function declareWinner(housePick, userPick){
-  const result = play(housePick, userPick)
-  switch(result){
+export function declareWinner(gameResult){
+  // const result = play(housePick, userPick)
+  switch(gameResult){
     case 1 : return "YOU WIN"
     case 0 : return "IT'S A TIE"
     case -1 : return "YOU LOSE"
