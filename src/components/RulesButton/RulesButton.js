@@ -1,9 +1,9 @@
 import React from "react";
 import "./RulesButton.scss";
 
-function RulesButton() {
+function RulesButton({handleShowRules}) {
   return (
-    <button className="rules-button">RULES</button>
+    <button onClick={handleShowRules} className="rules-button">RULES</button>
   );
 }
 

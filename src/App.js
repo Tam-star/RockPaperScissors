@@ -5,11 +5,18 @@ import RulesButton from "./components/RulesButton/RulesButton";
 import React from "react";
 import GameContainer from "./components/GameContainer/GameContainer";
 import { getHouseSymbol } from "./utils/helper";
+import RulesModal from "./components/RulesModal/RulesModal";
 
 function App() {
   const [userChose, setUserChose] = React.useState(false);
   const [userPick, setUserPick] = React.useState("");
   const [housePick, setHousePick] = React.useState("");
+  const [showRules, setShowRules] = React.useState(false);
+
+  const handleShowRules = (e) => {
+    e.preventDefault();
+    setShowRules(!showRules);
+  };
 
   const handleChangeContainer = (e) => {
     e.preventDefault();
@@ -30,7 +37,8 @@ function App() {
       ) : (
         <ChoiceContainer changeContainer={handleChangeContainer} />
       )}
-      <RulesButton />
+      {showRules ? <RulesModal closeModal={handleShowRules} /> : ""}
+      <RulesButton handleShowRules={handleShowRules} />
     </div>
   );
 }

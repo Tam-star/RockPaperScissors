@@ -2,7 +2,7 @@ $score-title-color: hsl(229, 64%, 46%);
 
 .score-container {
     background-color: white;
-    width: 170px;
+    width: 130px;
     padding: 15px;
     border-radius: 10px;
     text-align: center;
@@ -10,11 +10,13 @@ $score-title-color: hsl(229, 64%, 46%);
         color: $score-title-color;
         letter-spacing: 2px;
         margin: 0;
+        font-size: 18px;
+        font-weight: normal;
     }
     &__number {
         color: var(--dark-text);
         font-weight: 700;
-        font-size: 70px;
+        font-size: 60px;
         margin: 0;
     }
 }
