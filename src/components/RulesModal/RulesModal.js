@@ -6,14 +6,21 @@ function RulesModal({ closeModal }) {
     <>
       <section className="rules-modal" data-testid="rules-modal">
         <h1>RULES</h1>
-        <img alt="" className="rules-img" src="/images/image-rules.svg"></img>
+        <img
+          alt="rules game : rock beats scissors, scissors beats paper, paper beats rock"
+          className="rules-img"
+          src={`${process.env.PUBLIC_URL}/images/image-rules.svg`}
+        ></img>
         <img
           alt="close rules"
           className="close-icon"
-          src="/images/icon-close.svg"
+          src={`${process.env.PUBLIC_URL}/images/icon-close.svg`}
           role="button"
           tabIndex={0}
           onClick={closeModal}
+          onKeyUp={(event) => {
+            if (event.code === "Enter") closeModal(event);
+          }}
         ></img>
       </section>
       <div className="shadow"></div>

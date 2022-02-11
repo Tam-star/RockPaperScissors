@@ -13,15 +13,17 @@ function SymbolElement({ type, status, changeContainer, hidden = false, win=fals
         } ${type} ${win ? `${type}--winner` : ''}`}
         data-testid="symbol-container"
         title={type}
+        tabIndex={status === "choice" ? 0 : -1}
         data-symbol={type}
         role="button"
         onClick={changeContainer}
+        onKeyUp={(event) => { if (event.code === 'Enter') changeContainer(event) }}
       >
         <img
           className={`symbol-container${
             status === "choice" ? "--choice" : ""
           }__image`}
-          alt=""
+          alt={type}
           src={`${process.env.PUBLIC_URL}/images/icon-${type}.svg`}
         />
       </div>
