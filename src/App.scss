@@ -20,4 +20,8 @@ body{
   display : flex;
   flex-direction : column;
   align-items: center;
+  @include mobile-only{
+    height : 100vh;
+  }
+
 }

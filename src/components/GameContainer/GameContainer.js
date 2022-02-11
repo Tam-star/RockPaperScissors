@@ -1,5 +1,5 @@
 import React from "react";
-import { declareWinner, play } from "../../utils/helper";
+import { declareWinner, play, setNewScore } from "../../utils/helper";
 import SymbolElement from "../SymbolElement/SymbolElement";
 import {
   TIME_BEFORE_SHOWING_HOUSEPICK,
@@ -7,7 +7,7 @@ import {
 } from "../../config";
 import "./GameContainer.scss";
 
-function GameContainer({ userPick, housePick, changeContainer }) {
+function GameContainer({ userPick, housePick, changeContainer, updateScore }) {
   const [showWinner, setShowWinner] = React.useState(false);
   const [revealHousePick, setReavealHousePick] = React.useState(false);
   const gameResult = play(housePick, userPick)
@@ -19,14 +19,18 @@ function GameContainer({ userPick, housePick, changeContainer }) {
       TIME_BEFORE_SHOWING_HOUSEPICK
     );
     let timer2 = setTimeout(
-      () => setShowWinner(true),
+      () => {
+        setShowWinner(true)
+        setNewScore(gameResult)
+        updateScore()
+      },
       TIME_BEFORE_SHOWING_RESULT
     );
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
     };
-  }, []);
+  }, [gameResult]);
 
   //UseEffect to wait 3 seconds before rendering 'You win' or 'You lose' div
   return (

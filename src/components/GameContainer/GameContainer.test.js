@@ -10,26 +10,30 @@ beforeEach(() => {
 });
 
 const sleep = (t) => new Promise((resolve) => setTimeout(resolve, t));
+const mockUpdateScore = () => {
+  console.log('score updated')
+}
+
 
 test("appearance of PlayAgainComponent after 2 seconds wait", async () => {
-  render(<GameContainer userPick="paper" housePick="scissors" />);
+  render(<GameContainer userPick="paper" housePick="scissors" updateScore={mockUpdateScore} />);
   await waitFor(() => sleep(TIME_BEFORE_SHOWING_RESULT));
   expect(screen.getByTestId("play-again-container")).toBeInTheDocument();
 });
 
 describe("test final sentence", () => {
   test("final sentence when house wins", async () => {
-    render(<GameContainer userPick="paper" housePick="scissors" />);
+    render(<GameContainer userPick="paper" housePick="scissors" updateScore={mockUpdateScore} />);
     await waitFor(() => sleep(TIME_BEFORE_SHOWING_RESULT));
     expect(screen.getByTestId("final-sentence")).toHaveTextContent("YOU LOSE");
   });
   test("final sentence when user wins", async () => {
-    render(<GameContainer userPick="rock" housePick="scissors" />);
+    render(<GameContainer userPick="rock" housePick="scissors" updateScore={mockUpdateScore} />);
     await waitFor(() => sleep(TIME_BEFORE_SHOWING_RESULT));
     expect(screen.getByTestId("final-sentence")).toHaveTextContent("YOU WIN");
   });
   test("final sentence when it is a tie", async () => {
-    render(<GameContainer userPick="paper" housePick="paper" />);
+    render(<GameContainer userPick="paper" housePick="paper" updateScore={mockUpdateScore}/>);
     await waitFor(() => sleep(TIME_BEFORE_SHOWING_RESULT));
     expect(screen.getByTestId("final-sentence")).toHaveTextContent(
       "IT'S A TIE"

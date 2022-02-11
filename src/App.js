@@ -4,7 +4,7 @@ import ChoiceContainer from "./components/ChoiceContainer/ChoiceContainer";
 import RulesButton from "./components/RulesButton/RulesButton";
 import React from "react";
 import GameContainer from "./components/GameContainer/GameContainer";
-import { getHouseSymbol } from "./utils/helper";
+import { getHouseSymbol, getScore } from "./utils/helper";
 import RulesModal from "./components/RulesModal/RulesModal";
 
 function App() {
@@ -12,11 +12,16 @@ function App() {
   const [userPick, setUserPick] = React.useState("");
   const [housePick, setHousePick] = React.useState("");
   const [showRules, setShowRules] = React.useState(false);
+  const [score, setScore] = React.useState(getScore())
 
   const handleShowRules = (e) => {
     e.preventDefault();
     setShowRules(!showRules);
   };
+
+  const updateScore = () => {
+    setScore(getScore())
+  }
 
   const handleChangeContainer = (e) => {
     e.preventDefault();
@@ -27,12 +32,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header score={score}/>
       {userChose ? (
         <GameContainer
           userPick={userPick}
           housePick={housePick}
           changeContainer={handleChangeContainer}
+          updateScore={updateScore}
         />
       ) : (
         <ChoiceContainer changeContainer={handleChangeContainer} />

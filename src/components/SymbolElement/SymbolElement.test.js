@@ -6,32 +6,32 @@ beforeEach(() => {
 });
 
 describe("test style for game elements", () => {
-  test("test style for scissors ", () => {
+  test("style for scissors", () => {
     render(<SymbolElement type="scissors"/>);
     const mySymbolContainer = screen.queryByTestId("symbol-container");
     expect(mySymbolContainer).toHaveClass('scissors')
   });
-  test("test style for rock ", () => {
+  test("style for rock", () => {
     render(<SymbolElement type="rock" />);
     const mySymbolContainer = screen.queryByTestId("symbol-container");
     expect(mySymbolContainer).toHaveClass('rock')
   });
-  test("test style for paper ", () => {
+  test("style for paper", () => {
     render(<SymbolElement type="paper" />);
     const mySymbolContainer = screen.queryByTestId("symbol-container");
     expect(mySymbolContainer).toHaveClass('paper')
   });
-  test("test style for scissors when winning", () => {
+  test("style for scissors when winning", () => {
     render(<SymbolElement type="scissors" win={true}/>);
     const mySymbolContainer = screen.queryByTestId("symbol-container");
     expect(mySymbolContainer).toHaveClass('scissors--winner')
   });
-  test("test style for rock when winning ", () => {
+  test("style for rock when winning", () => {
     render(<SymbolElement type="rock" win={true}/>);
     const mySymbolContainer = screen.queryByTestId("symbol-container");
     expect(mySymbolContainer).toHaveClass('rock--winner')
   });
-  test("test style for paper when winning ", () => {
+  test("style for paper when winning", () => {
     render(<SymbolElement type="paper" win={true}/>);
     const mySymbolContainer = screen.queryByTestId("symbol-container");
     expect(mySymbolContainer).toHaveClass('paper--winner')
