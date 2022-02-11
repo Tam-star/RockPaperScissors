@@ -1,3 +1,7 @@
+@import '../../utils/variables';
+@import '../../utils/mixins';
+
+
 .rules-modal {
   background-color: white;
   position: absolute;
@@ -11,10 +15,21 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
+  @include mobile-only{
+    height : 100vh;
+    width : 100vw;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 0px;
+  }
   & h1 {
     margin: 0 0 50px 0;
     letter-spacing: -1px;
     font-weight: 800;
+    @include mobile-only{
+      text-align: center;
+    }
   }
 }
 
@@ -23,10 +38,17 @@
   top: 30px;
   right: 30px;
   cursor: pointer;
+  @include mobile-only{
+    position : static;
+  }
+
 }
 
 .rules-img {
   margin: auto;
+  @include mobile-only{
+    margin : 70px auto;
+  }
 }
 
 .shadow {

@@ -1,21 +1,39 @@
+@import '../../utils/variables';
+@import '../../utils/mixins';
+
 .choice-container {
     position: relative;
     width: 500px;
     height : 500px;
     margin-top : 50px;
     display : flex;
+    @include mobile-only{
+        width : 90%;
+        height : 90vw;
+        margin : 50px auto auto auto;
+    }
     &__image {
         margin : auto;
+        width: 80%;
+        // width : 50%;
     }
     &__top-left{
         position : absolute;
         top : 5%;
         left : 5%;
+        @include mobile-only{
+            top : 0;
+            left : 0;
+        }
     }
     &__top-right{
         position : absolute;
         top : 5%;
         right : 5%;
+        @include mobile-only{
+            top: 0;
+            right : 0;
+        }
     }
     &__bottom{
         position : absolute;

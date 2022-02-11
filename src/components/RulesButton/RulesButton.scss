@@ -1,8 +1,7 @@
-$header-outline: hsl(217, 16%, 45%);
+@import '../../utils/variables';
+@import '../../utils/mixins';
 
 .rules-button {
-    // align-self: flex-end;
-    // margin: 0 30px 20px 0;
     position : absolute;
     bottom : 30px;
     right : 30px;
@@ -15,4 +14,8 @@ $header-outline: hsl(217, 16%, 45%);
     letter-spacing: 2px;
     font-size: 16px;
     cursor: help;
+    @include mobile-only{
+        position: static;
+        margin-bottom: 40px;
+    }
 }
