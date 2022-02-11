@@ -22,7 +22,7 @@ function SymbolElement({ type, status, changeContainer, hidden = false, win=fals
             status === "choice" ? "--choice" : ""
           }__image`}
           alt=""
-          src={`/images/icon-${type}.svg`}
+          src={`${process.env.PUBLIC_URL}/images/icon-${type}.svg`}
         />
       </div>
     );
