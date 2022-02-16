@@ -10,7 +10,7 @@
     border : 3px solid $header-outline;
     width :45%;
     min-width: 350px;
-    margin : 50px auto;
+    margin : 30px auto;
     @include mobile-only{
         width : 80%;
         min-width: 0;

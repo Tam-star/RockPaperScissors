@@ -5,17 +5,19 @@
 
 .switch-container{
     background-color: white;
-    position : absolute;
-    left : 20px;
-    bottom: 30px;
+    // position : absolute;
+    // left : 20px;
+    // bottom: 30px;
+    margin : auto auto 30px 30px;
     border-radius : 20px;
     padding : 15px;
     display : flex;
     justify-content: center;
     align-items: center;
     @include tablet-only{
-        position: static;
-        margin-top : 20px;
-        margin-bottom : 20px;
+        margin-left : auto;
+        // position: static;
+        // margin-top : 20px;
+        // margin-bottom : 20px;
     }
 }

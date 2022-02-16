@@ -1,18 +1,8 @@
 import { STORAGE } from "../config";
 
-// export function getHouseSymbol() {
-//   const symbols = ["rock", "paper", "scissors"];
-//   return symbols[Math.floor(Math.random() * symbols.length)];
-// }
-
 export function getHouseSymbol(symbolArray) {
   return symbolArray[Math.floor(Math.random() * symbolArray.length)];
 }
-
-// export function getBonusHouseSymbol() {
-//   const symbols = ["rock", "paper", "scissors", "lizard", "spock"];
-//   return symbols[Math.floor(Math.random() * symbols.length)];
-// }
 
 export function getScore() {
   if (sessionStorage.getItem(STORAGE)) {

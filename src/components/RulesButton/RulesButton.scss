@@ -2,11 +2,12 @@
 @import '../../utils/mixins';
 
 .rules-button {
-    position : absolute;
-    bottom : 30px;
-    right : 30px;
+    // position : absolute;
+    // bottom : 30px;
+    // right : 30px;
     background-color: transparent;
     padding: 10px 40px;
+    margin : auto 30px 30px auto;
     border-radius: 10px;
     border: 2px solid $header-outline;
     color: white;
@@ -15,9 +16,10 @@
     font-size: 16px;
     cursor: help;
     @include tablet-only{
-        position: static;
-        margin-top : 20px;
-        margin-bottom: 20px;
+        margin-right : auto;
+        // position: static;
+        // margin-top : 20px;
+        // margin-bottom: 20px;
     }
     &:hover{
         background-color: whitesmoke;

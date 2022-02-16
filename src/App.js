@@ -34,23 +34,24 @@ function App() {
   };
 
   return (
-    
-      <div className="App">
-        <Header score={score} />
-        {userChose ? (
-          <GameContainer
-            userPick={userPick}
-            housePick={housePick}
-            changeContainer={handleChangeContainer}
-            updateScore={updateScore}
-          />
-        ) : (
-          <ChoiceContainer changeContainer={handleChangeContainer} />
-        )}
-        {showRules ? <RulesModal closeModal={handleShowRules} /> : ""}
-        <RulesButton handleShowRules={handleShowRules} />
+    <div className="App">
+      <Header score={score} />
+      {userChose ? (
+        <GameContainer
+          userPick={userPick}
+          housePick={housePick}
+          changeContainer={handleChangeContainer}
+          updateScore={updateScore}
+        />
+      ) : (
+        <ChoiceContainer changeContainer={handleChangeContainer} />
+      )}
+      {showRules ? <RulesModal closeModal={handleShowRules} /> : ""}
+      <footer className="main-footer">
         <GameSwitchElement />
-      </div>
+        <RulesButton handleShowRules={handleShowRules} />
+      </footer>
+    </div>
   );
 }
 

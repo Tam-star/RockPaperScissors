@@ -1,21 +1,30 @@
-@import './utils/variables';
-@import './utils/mixins';
+@import "./utils/variables";
+@import "./utils/mixins";
 @import-normalize;
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
 
-
-body{
-  font-family: 'Barlow Semi Condensed', sans-serif;
-  background: radial-gradient(hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
   /* height: 100%; */
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-.App{
-  display : flex;
-  flex-direction : column;
+.App {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+}
 
+.main-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include tablet-only {
+    margin: 30px auto;
+    flex-direction: column;
+  }
 }
