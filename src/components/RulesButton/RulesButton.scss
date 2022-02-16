@@ -18,4 +18,8 @@
         position: static;
         margin-bottom: 40px;
     }
+    &:hover{
+        background-color: whitesmoke;
+        color : $dark-text;
+    }
 }

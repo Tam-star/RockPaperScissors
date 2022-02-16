@@ -1,14 +1,17 @@
 import React from "react";
+import { useGame } from "../../contexts/GameContext";
 import SymbolElement from "../SymbolElement/SymbolElement";
 import "./ChoiceContainer.scss";
 
 function ChoiceContainer({ changeContainer }) {
+  const [game] = useGame()
+
   return (
     <div className="choice-container" data-testid="choice-container">
       <img
         className="choice-container__image"
         alt=""
-        src={`/images/bg-triangle.svg`}
+        src={game.choiceImage}
       />
       <div className="choice-container__top-left">
         <SymbolElement

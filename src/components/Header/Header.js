@@ -1,12 +1,17 @@
 import React from "react";
+import { useGame } from "../../contexts/GameContext";
 import ScoreElement from "../ScoreElement/ScoreElement";
 import "./Header.scss";
 
-function Header({score}) {
+function Header({ score }) {
+  const [game] = useGame();
   return (
     <header className="app-header">
-    <img alt="Rock Paper Scissors Game" src={`${process.env.PUBLIC_URL}/images/logo.svg`} />
-      <ScoreElement score={score}/>
+      <img
+        alt={game.logoAlt}
+        src={game.logoUrl}
+      />
+      <ScoreElement score={score} />
     </header>
   );
 }

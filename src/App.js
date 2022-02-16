@@ -6,13 +6,15 @@ import React from "react";
 import GameContainer from "./components/GameContainer/GameContainer";
 import { getHouseSymbol, getScore } from "./utils/helper";
 import RulesModal from "./components/RulesModal/RulesModal";
+import GameSwitchElement from "./components/GameSwitchElement/GameSwitchElement";
+import { GameProvider } from "./contexts/GameContext";
 
 function App() {
   const [userChose, setUserChose] = React.useState(false);
   const [userPick, setUserPick] = React.useState("");
   const [housePick, setHousePick] = React.useState("");
   const [showRules, setShowRules] = React.useState(false);
-  const [score, setScore] = React.useState(getScore())
+  const [score, setScore] = React.useState(getScore());
 
   const handleShowRules = (e) => {
     e.preventDefault();
@@ -20,8 +22,8 @@ function App() {
   };
 
   const updateScore = () => {
-    setScore(getScore())
-  }
+    setScore(getScore());
+  };
 
   const handleChangeContainer = (e) => {
     e.preventDefault();
@@ -31,21 +33,24 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header score={score}/>
-      {userChose ? (
-        <GameContainer
-          userPick={userPick}
-          housePick={housePick}
-          changeContainer={handleChangeContainer}
-          updateScore={updateScore}
-        />
-      ) : (
-        <ChoiceContainer changeContainer={handleChangeContainer} />
-      )}
-      {showRules ? <RulesModal closeModal={handleShowRules} /> : ""}
-      <RulesButton handleShowRules={handleShowRules} />
-    </div>
+    <GameProvider>
+      <div className="App">
+        <GameSwitchElement />
+        <Header score={score} />
+        {userChose ? (
+          <GameContainer
+            userPick={userPick}
+            housePick={housePick}
+            changeContainer={handleChangeContainer}
+            updateScore={updateScore}
+          />
+        ) : (
+          <ChoiceContainer changeContainer={handleChangeContainer} />
+        )}
+        {showRules ? <RulesModal closeModal={handleShowRules} /> : ""}
+        <RulesButton handleShowRules={handleShowRules} />
+      </div>
+    </GameProvider>
   );
 }
 

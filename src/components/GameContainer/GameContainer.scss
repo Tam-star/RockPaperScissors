@@ -8,7 +8,7 @@
     margin-top: 80px;
     color: white;
     font-weight: 600;
-    @include mobile-only {
+    @include tablet-only {
         flex-wrap: wrap;
         align-items: flex-start;
         width: 100%;
@@ -19,7 +19,7 @@
         flex-direction: column;
         align-items: center;
         margin: 0 50px;
-        @include mobile-only(){
+        @include tablet-only(){
             margin : 0;
             flex-direction: column-reverse;
             width : 50%;
@@ -38,8 +38,7 @@
         font-size: 55px;
     }
     .play-again-container {
-        @include mobile-only(){
-            // align-self: flex-end;
+        @include tablet-only(){
             order : 3;
         }
         
