@@ -2,14 +2,18 @@ import React from "react";
 
 export const games = {
     original : {
+        choiceImage : `${process.env.PUBLIC_URL}/images/bg-triangle.svg`,
         logoAlt  : 'Rock Paper Scissors Game',
         logoUrl : `${process.env.PUBLIC_URL}/images/logo.svg`, 
-        choiceImage : `${process.env.PUBLIC_URL}/images/bg-triangle.svg`
+        rulesImage : `${process.env.PUBLIC_URL}/images/image-rules.svg`,
+        symbols : ["rock", "paper", "scissors"]
     },
     bonus : {
+        choiceImage : `${process.env.PUBLIC_URL}/images/bg-pentagon.svg`,
         logoAlt  : 'Rock Paper Scissors Lizard Spock Game',
         logoUrl : `${process.env.PUBLIC_URL}/images/logo-bonus.svg`,
-        choiceImage : `${process.env.PUBLIC_URL}/images/bg-pentagon.svg`
+        rulesImage : `${process.env.PUBLIC_URL}/images/image-rules-bonus.svg`,
+        symbols : ["rock", "paper", "scissors", "lizard", "spock"]
     }
 }
 

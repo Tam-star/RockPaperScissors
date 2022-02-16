@@ -14,9 +14,10 @@
     letter-spacing: 2px;
     font-size: 16px;
     cursor: help;
-    @include mobile-only{
+    @include tablet-only{
         position: static;
-        margin-bottom: 40px;
+        margin-top : 20px;
+        margin-bottom: 20px;
     }
     &:hover{
         background-color: whitesmoke;

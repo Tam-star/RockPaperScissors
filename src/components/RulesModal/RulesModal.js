@@ -1,7 +1,10 @@
 import React from "react";
+import { useGame } from "../../contexts/GameContext";
 import "./RulesModal.scss";
 
 function RulesModal({ closeModal }) {
+  const [game] = useGame();
+
   return (
     <>
       <section className="rules-modal" data-testid="rules-modal">
@@ -9,7 +12,7 @@ function RulesModal({ closeModal }) {
         <img
           alt="rules game : rock beats scissors, scissors beats paper, paper beats rock"
           className="rules-img"
-          src={`${process.env.PUBLIC_URL}/images/image-rules.svg`}
+          src={game.rulesImage}
         ></img>
         <img
           alt="close rules"

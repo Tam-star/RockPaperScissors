@@ -1,44 +1,75 @@
-@import '../../utils/variables';
-@import '../../utils/mixins';
+@import "../../utils/variables";
+@import "../../utils/mixins";
 
 .choice-container {
     position: relative;
     width: 500px;
-    height : 500px;
-    margin-top : 50px;
-    display : flex;
-    @include mobile-only{
-        width : 350px;
-        height : 350px;
-        margin : 50px auto auto auto;
+    height: 500px;
+    margin-top: 50px;
+    display: flex;
+    @include mobile-only {
+        width: 350px;
+        height: 350px;
+        margin: 50px auto auto auto;
     }
     &__image {
-        margin : auto;
+        margin: auto;
         width: 80%;
         object-fit: cover;
     }
-    &__top-left{
-        position : absolute;
-        top : 5%;
-        left : 5%;
-        @include mobile-only{
-            top : 0;
-            left : 0;
+    &--original {
+        &__top-left {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            @include mobile-only {
+                top: 0;
+                left: 0;
+            }
+        }
+        &__top-right {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            @include mobile-only {
+                top: 0;
+                right: 0;
+            }
+        }
+        &__bottom {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -30%);
         }
     }
-    &__top-right{
-        position : absolute;
-        top : 5%;
-        right : 5%;
-        @include mobile-only{
+    &--bonus {
+        &__top{
+            position: absolute;
             top: 0;
-            right : 0;
+            left: 50%;
+            transform: translate(-50%, -30%);
         }
-    }
-    &__bottom{
-        position : absolute;
-        bottom : 0;
-        left : 50%;
-        transform: translate(-50%, -30%);
+        &__top-left {
+            position: absolute;
+            top: 20%;
+            left: 0;
+           
+        }
+        &__top-right {
+            position: absolute;
+            top: 20%;
+            right: 0;
+        }
+        &__bottom-right {
+            position: absolute;
+            bottom: 0;
+            right : 5%;
+        }
+        &__bottom-left {
+            position: absolute;
+            bottom: 0;
+            left : 5%;
+        }
     }
 }

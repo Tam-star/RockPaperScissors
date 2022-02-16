@@ -3,7 +3,8 @@ import { STORAGE } from "../config";
 
 test("getHouseSymbol to return either rock, paper or scissors", () => {
   for (let i = 0; i < 10; i++) {
-    expect(getHouseSymbol()).toMatch(/(rock|paper|scissors)/);
+    const symbols = ["rock", "paper", "scissors"];
+    expect(getHouseSymbol(symbols)).toMatch(/(rock|paper|scissors)/);
   }
 });
 
@@ -23,6 +24,27 @@ describe("test play function", () => {
   test("when house picked rock and user picked paper, user should win", () => {
     expect(play("rock", "paper")).toBe(1);
   });
+  test("when house picked lizard and user picked rock, user should win", () => {
+    expect(play("lizard", "rock")).toBe(1);
+  });
+  test("when house picked spock and user picked lizard, user should win", () => {
+    expect(play("spock", "lizard")).toBe(1);
+  });
+  test("when house picked scissors and user picked spock, user should win", () => {
+    expect(play("scissors", "spock")).toBe(1);
+  });
+  test("when house picked lizard and user picked scissors, user should win", () => {
+    expect(play("lizard", "scissors")).toBe(1);
+  });
+  test("when house picked rock and user picked spock, user should win", () => {
+    expect(play("rock", "spock")).toBe(1);
+  });
+  test("when house picked paper and user picked lizard, user should win", () => {
+    expect(play("paper", "lizard")).toBe(1);
+  });
+  test("when house picked spock and user picked paper, user should win", () => {
+    expect(play("spock", "paper")).toBe(1);
+  });
   //Cases house win
   test("when house picked scissors and user picked paper, user should lose", () => {
     expect(play("scissors", "paper")).toBe(-1);
@@ -33,6 +55,27 @@ describe("test play function", () => {
   test("when house picked rock and user picked scissors, user should lose", () => {
     expect(play("rock", "scissors")).toBe(-1);
   });
+  test("when house picked rock and user picked lizard, user should lose", () => {
+    expect(play("rock", "lizard")).toBe(-1);
+  });
+  test("when house picked lizard and user picked spock, user should lose", () => {
+    expect(play("lizard", "spock")).toBe(-1);
+  });
+  test("when house picked spock and user picked scissors, user should lose", () => {
+    expect(play("spock", "scissors")).toBe(-1);
+  });
+  test("when house picked scissors and user picked lizard, user should lose", () => {
+    expect(play("scissors", "lizard")).toBe(-1);
+  });
+  test("when house picked spock and user picked rock, user should lose", () => {
+    expect(play("spock", "rock")).toBe(-1);
+  });
+  test("when house picked lizard and user picked paper, user should lose", () => {
+    expect(play("lizard", "paper")).toBe(-1);
+  });
+  test("when house picked paper and user picked spock, user should lose", () => {
+    expect(play("paper", "spock")).toBe(-1);
+  });
   //Cases no one win
   test("when both picked scissors, it's a tie", () => {
     expect(play("scissors", "scissors")).toBe(0);
@@ -42,6 +85,12 @@ describe("test play function", () => {
   });
   test("when both picked rock, it's a tie", () => {
     expect(play("rock", "rock")).toBe(0);
+  });
+  test("when both picked lizard, it's a tie", () => {
+    expect(play("lizard", "lizard")).toBe(0);
+  });
+  test("when both picked spock, it's a tie", () => {
+    expect(play("spock", "spock")).toBe(0);
   });
 });
 

@@ -7,9 +7,10 @@ import GameContainer from "./components/GameContainer/GameContainer";
 import { getHouseSymbol, getScore } from "./utils/helper";
 import RulesModal from "./components/RulesModal/RulesModal";
 import GameSwitchElement from "./components/GameSwitchElement/GameSwitchElement";
-import { GameProvider } from "./contexts/GameContext";
+import { GameProvider, useGame } from "./contexts/GameContext";
 
 function App() {
+  const [game] = useGame();
   const [userChose, setUserChose] = React.useState(false);
   const [userPick, setUserPick] = React.useState("");
   const [housePick, setHousePick] = React.useState("");
@@ -28,14 +29,13 @@ function App() {
   const handleChangeContainer = (e) => {
     e.preventDefault();
     setUserPick(e.currentTarget.dataset.symbol);
-    setHousePick(getHouseSymbol());
+    setHousePick(getHouseSymbol(game.symbols));
     setUserChose(!userChose);
   };
 
   return (
-    <GameProvider>
+    
       <div className="App">
-        <GameSwitchElement />
         <Header score={score} />
         {userChose ? (
           <GameContainer
@@ -49,8 +49,8 @@ function App() {
         )}
         {showRules ? <RulesModal closeModal={handleShowRules} /> : ""}
         <RulesButton handleShowRules={handleShowRules} />
+        <GameSwitchElement />
       </div>
-    </GameProvider>
   );
 }
 

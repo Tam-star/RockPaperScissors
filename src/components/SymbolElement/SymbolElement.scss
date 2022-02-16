@@ -91,3 +91,27 @@
         @include halo(#3542b4);
     }
 }
+
+.lizard {
+    background-image: linear-gradient(white, white), radial-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    box-shadow: inset 0 10px #b5b8cd, 0 10px #4E379B;
+    @include mobile-only {
+        box-shadow: inset 0 5px #b5b8cd, 0 5px #4E379B;
+    }
+    &--winner {
+        @include halo(#4E379B);
+    }
+}
+
+.spock {
+    background-image: linear-gradient(white, white), radial-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    box-shadow: inset 0 10px #b5b8cd, 0 10px #5583A0;
+    @include mobile-only {
+        box-shadow: inset 0 5px #b5b8cd, 0 5px #5583A0;
+    }
+    &--winner {
+        @include halo(#5583A0);
+    }
+}
+
+

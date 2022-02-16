@@ -13,8 +13,9 @@
     display : flex;
     justify-content: center;
     align-items: center;
-    @include mobile-only{
+    @include tablet-only{
         position: static;
         margin-top : 20px;
+        margin-bottom : 20px;
     }
 }
